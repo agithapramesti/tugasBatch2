@@ -10,49 +10,57 @@ public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    private String name;
-    private String address;
-    private String email;
-    private Date birth_date;
+    private String employee_name;
+    private String employee_uname;
+    private String password;
+    private String role;
+    private int status;
 
+    public String getEmployee_uname() {
+        return employee_uname;
+    }
 
-    public Integer getId() {
+    public void setEmployee_uname(String employee_uname) {
+        this.employee_uname = employee_uname;
+    }
+
+    public Integer getEmployee_id() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setEmployee_id(Integer id) {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getEmployee_name() {
+        return employee_name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setEmployee_name(String employee_name) {
+        this.employee_name = employee_name;
     }
 
-    public String getAddress() {
-        return address;
+    public String getPassword() {
+        return password;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public String getEmail() {
-        return email;
+    public String getRole() {
+        return role;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setRole(String role) {
+        this.role = role;
     }
 
-    public Date getBirth_date() {
-        return birth_date;
+    public int getStatus() {
+        return status;
     }
 
-    public void setBirth_date(Date birth_date) {
-        this.birth_date = birth_date;
+    public void setStatus(int status) {
+        this.status = status;
     }
 }
