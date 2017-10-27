@@ -16,4 +16,10 @@ public class HomeController {
     public String homee(){
         return "home";
     }
+
 }
+/*
+[1] untuk update dia malah ndobel
+[2] status selalu 1 diawal
+
+*/

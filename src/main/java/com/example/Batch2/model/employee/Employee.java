@@ -9,12 +9,26 @@ public class Employee {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+    public Integer id;
     private String employee_name;
     private String employee_uname;
     private String password;
     private String role;
     private int status;
+
+    public Employee() {
+        System.out.println("no id:"+id);
+    }
+
+    public Employee(Integer id,String employee_name, String employee_uname, String password, String role, int status)
+    {
+        this.id=id;
+        this.employee_name = employee_name;
+        this.employee_uname = employee_uname;
+        this.password = password;
+        this.role = role;
+        this.status = status;
+    }
 
     public String getEmployee_uname() {
         return employee_uname;

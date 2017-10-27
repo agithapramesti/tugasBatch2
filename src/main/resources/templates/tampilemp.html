@@ -2,14 +2,12 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
     <title>SpringBoot - Project</title>
-    <link th:href="@{https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css}" rel="stylesheet" media="screen"/>
+    <link th:href="@{https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css}" rel="stylesheet"
+          media="screen"/>
     <link th:href="@{/style.css}" rel="stylesheet" media="screen"/>
     <meta http-equiv="context-type" content="text/html; charset=UTF-8"/>
 </head>
 <body>
-<div class="page-header text-center">
-    <h1>CRUD for Employee</h1>
-</div>
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
@@ -19,7 +17,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="tampilemp.html">Simple CRUD</a>
+            <a class="navbar-brand" href="#">Simple CRUD</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
@@ -28,24 +26,32 @@
         </div><!--/.nav-collapse -->
     </div>
 </nav>
+
+<div class="page-header text-center">
+    <h1>CRUD for Employee</h1>
+</div>
+<h3> Daftar Employee: </h3>
 <div class="container">
 
-    <h1>Employee Data</h1>
-    <br/><br/><br/>
     <div th:if="${not #lists.isEmpty(employee)}">
+
         <table class="table table-striped">
+
             <tr>
-                <th>Name</th>
+                <th>Nama</th>
                 <th>Username</th>
                 <th>Password</th>
                 <th>Role</th>
                 <th>Status</th>
+                <th>Action</th>
             </tr>
             <tr th:each="employee : ${employee}">
-                <!--/*@thymesVar id="name" type=""*/-->
+
                 <td th:text="${employee.employee_name}"></td>
                 <td th:text="${employee.employee_uname}"></td>
-
+                <td th:text="${employee.password}"></td>
+                <td th:text="${employee.role}"></td>
+                <td th:text="${employee.status}"></td>
                 <td>
                     <a th:href="${'/tampilemp/edit/'+employee.id}"><span class="glyphicon glyphicon-edit"></span></a>
                     <a th:href="${'/tampilemp/hapus/'+employee.id}"><span class="glyphicon glyphicon-remove"></span></a>
@@ -53,9 +59,13 @@
             </tr>
         </table>
     </div>
-    <div>
-        <a class="btn btn-default" href="/tampilemp/create">Add New Employee</a>
-    </div>
+</div>
+
+<div>
+
+    <a class="btn btn-default" href="/tampilemp/create">Add New Employee</a>
 </div>
 </body>
+<script th:src="@{/jquery.js}"></script>
+<script th:src="@{/boostrap.js}"></script>
 </html>

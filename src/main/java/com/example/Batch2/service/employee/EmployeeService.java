@@ -9,22 +9,29 @@ import java.util.List;
 
 @Service
 public class EmployeeService {
-    @Autowired
     EmployeeRepository employeeRepository;
 
-    public List<Employee> showAllEmp(){
-        List<Employee> temp=employeeRepository.findAll();
+    @Autowired
+    public EmployeeService(EmployeeRepository employeeRepository) {
+        this.employeeRepository = employeeRepository;
+    }
+
+    public List<Employee> showAllEmp() {
+        List<Employee> temp = employeeRepository.findAll();
         return temp;
     }
-    public Employee saveOrUpdate(Employee e){
-        Employee temp1= employeeRepository.save(e);
+
+    public Employee saveOrUpdate(Employee e) {
+        Employee temp1 = employeeRepository.save(e);
         return temp1;
     }
-    public Employee getIdEmp(Integer id){
-        Employee get= employeeRepository.findOne(id);
+
+    public Employee getIdEmp(Integer id) {
+        Employee get = employeeRepository.findOne(id);
         return get;
     }
-    public void hapus(Integer id){
+
+    public void hapus(Integer id) {
         employeeRepository.delete(id);
     }
 }
