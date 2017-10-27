@@ -12,7 +12,7 @@ public class EmployeeRepolmpl implements RepoEmployeeCustom {
     @Override
     public List<Employee> getAllEmployee(){
         List<Employee> data= this.entityManager.createNativeQuery(
-                "select * from Employee", Employee.class).getResultList();
+                "select * from employee", Employee.class).getResultList();
         return data;
     }
 }

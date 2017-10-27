@@ -2,9 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
     <title>SpringBoot - Project</title>
-    <link th:href="@{https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css}" rel="stylesheet"
-          media="screen"/>
-    <link th:href="@{/style.css}" rel="stylesheet" media="screen"/>
+    <link th:href="@{https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css}" rel="stylesheet" media="screen"/>
     <meta http-equiv="context-type" content="text/html; charset=UTF-8"/>
 </head>
 <body>
@@ -32,44 +30,37 @@
 </nav>
 
 <div class="page-header text-center">
-    <h1>CRUD for Employee</h1>
+    <h1>CRUD for Category</h1>
 </div>
 <h3> Daftar Employee: </h3>
 <div class="container">
 
-    <div th:if="${not #lists.isEmpty(employee)}">
+    <div th:if="${not #lists.isEmpty(category)}">
 
         <table class="table table-striped">
 
             <tr>
-                <th>Nama</th>
-                <th>Username</th>
-                <th>Password</th>
-                <th>Role</th>
-                <th>Status</th>
+                <th>Nama Kategory</th>
+                <th>Deskripsi Kategori</th>
+
                 <th>Action</th>
             </tr>
-            <tr th:each="employee : ${employee}">
+            <tr th:each="category : ${category}">
 
-                <td th:text="${employee.employee_name}"></td>
-                <td th:text="${employee.employee_uname}"></td>
-                <td th:text="${employee.password}"></td>
-                <td th:text="${employee.role}"></td>
-                <td th:text="${employee.status}"></td>
+                <td th:text="${category.category_name}"></td>
+                <td th:text="${category.category_desc}"></td>
+
                 <td>
-                    <a th:href="${'/tampilemp/edit/'+employee.id}"><span class="glyphicon glyphicon-edit"></span></a>
-                    <a th:href="${'/tampilemp/hapus/'+employee.id}"><span class="glyphicon glyphicon-remove"></span></a>
+                    <a th:href="${'/category/edit/'+category.category_id}"><span class="glyphicon glyphicon-edit"></span></a>
+                    <a th:href="${'/category/hapus/'+category.category_id}"><span class="glyphicon glyphicon-remove"></span></a>
                 </td>
             </tr>
         </table>
     </div>
 </div>
-
 <div>
 
-    <a class="btn btn-default" href="/tampilemp/create">Add New Employee</a>
+    <a class="btn btn-default" href="/category/createCategory">Add New Category</a>
 </div>
 </body>
-<script th:src="@{/jquery.js}"></script>
-<script th:src="@{/boostrap.js}"></script>
 </html>
