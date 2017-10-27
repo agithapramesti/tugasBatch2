@@ -2,9 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
     <title>SpringBoot - Project</title>
-    <link th:href="@{https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css}" rel="stylesheet"
-          media="screen"/>
-    <link th:href="@{/style.css}" rel="stylesheet" media="screen"/>
+    <link th:href="@{https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css}" rel="stylesheet" media="screen"/>
     <meta http-equiv="context-type" content="text/html; charset=UTF-8"/>
 </head>
 <body>
@@ -31,46 +29,40 @@
         <!--/.nav-collapse -->
     </div>
 </nav>
-
 <div class="page-header text-center">
-    <h1>CRUD for Employee</h1>
+    <h1>CRUD for Buku</h1>
 </div>
-<h3> Daftar Employee: </h3>
 <div class="container">
-
+    <p>Daftar Buku</p>
     <div th:if="${not #lists.isEmpty(employee)}">
-
         <table class="table table-striped">
-
             <tr>
-                <th>Nama</th>
-                <th>Username</th>
-                <th>Password</th>
-                <th>Role</th>
-                <th>Status</th>
+                <th>ISBN </th>
+                <th>Judul Buku </th>
+                <th>Penulis </th>
+                <th>Penerbit </th>
+                <th>Harga </th>
+                <th>Harga Sesudah</th>
+                <th>Diskon </th>
+                <th>Lokasi Rak </th>
                 <th>Action</th>
             </tr>
-            <tr th:each="employee : ${employee}">
+            <tr th:each="book : ${book}">
+                <td th:text="${book.isbn}"></td>
+                <td th:text="${book.book_title}"></td>
+                <td th:text="${book.author}"></td>
+                <td th:text="${book.publisher}"></td>
+                <td th:text="${book.price_before}"></td>
+                <td th:text="${book.price_after}"></td>
+                <td th:text="${book.discount}"></td>
+                <td th:text="${book.location}"></td>
 
-                <td th:text="${employee.employee_name}"></td>
-                <td th:text="${employee.employee_uname}"></td>
-                <td th:text="${employee.password}"></td>
-                <td th:text="${employee.role}"></td>
-                <td th:text="${employee.status}"></td>
-                <td>
-                    <a th:href="${'/tampilemp/edit/'+employee.id}"><span class="glyphicon glyphicon-edit"></span></a>
-                    <a th:href="${'/tampilemp/hapus/'+employee.id}"><span class="glyphicon glyphicon-remove"></span></a>
-                </td>
             </tr>
         </table>
     </div>
 </div>
-
-
 <div>
-<a class="btn btn-default" href="/tampilemp/create">Add New Employee</a>
+    <a class="btn btn-default" href="/book/createBook">Add New Book</a>
 </div>
 </body>
-<script th:src="@{/jquery.js}"></script>
-<script th:src="@{/boostrap.js}"></script>
 </html>
